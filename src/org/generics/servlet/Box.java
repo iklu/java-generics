@@ -49,4 +49,8 @@ public class Box<T> {
 	public <U extends Number> void inspect(U u) {
 		System.out.println("T: " + obj.getClass().getName());
 	}
+	
+	public void add(T objs){
+		
+	}
 }

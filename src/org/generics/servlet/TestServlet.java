@@ -56,6 +56,11 @@ public class TestServlet extends HttpServlet {
 		boolean compare = Util.compare(p1, p2);
 		
 		out.println("Is equal = " + compare);
+		
+		//1
+		Integer ar[] = {12,13};		
+		Util.countGreaterThan(ar,15);
+		Util.countGreaterThan1(ar,15);
 
 		for (String a : aMap.get("d"))
 			out.println("<h3>" + a + "</h3>");
@@ -80,6 +85,16 @@ public class TestServlet extends HttpServlet {
 		// Bounded Type Parameter
 		box.inspect(123);
 		box.inspect(55);
+		
+		// Generics, Inheritance and Subtypes
+		Box<Number> boxs = new Box<Number>();
+		boxs.add(new Integer(10));   // OK
+		boxs.add(new Double(10.1));  // OK
+		
+		TestServlet test = new TestServlet();
+		test.boxTest(boxs); //OK
+		
+		//test.boxTest(new Box<Integer>()); NOT OK
 	}
 	
 	public void showSumOfNumbers() {
@@ -122,5 +137,7 @@ public class TestServlet extends HttpServlet {
 		
 		System.out.println(d);
 	}	
+	
+	public void boxTest(Box<Number> n) { /* ... */ }
 	
 }
